@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { 
+    margin: 0;
+    padding: 0;
+    height: 100%; 
+    width: 100%;
+    font-family: 'Times New Roman', Times, serif;
+    color: white;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    /* background: rgb(21,21,23); */
+    /* background: linear-gradient(350deg, rgb(0,0,0) 15%, rgb(76,132,168) 90%); */
+    background-color: #255777;
+}
+
+@media screen and (max-width: 800px) {
+
+
+}
+
+

@@ -1,0 +1,13 @@
+<header>
+    <div id="languages-container">
+        <h3 [ngClass]="languageColor('ru')" (click)="setLanguage('ru')">RU</h3>
+        <h3 [ngClass]="languageColor('en')" (click)="setLanguage('en')">EN</h3>
+        <h3 [ngClass]="languageColor('md')" (click)="setLanguage('md')">MD</h3>
+    </div>
+    <div id="logo">
+        <ng-lottie [options]="options"></ng-lottie>
+    </div>
+    <!-- <img src="../../assets/img/Logo.svg" id="logo" alt=""> -->
+    <span id="bottom-container"></span>
+</header>
+<menu-page></menu-page>

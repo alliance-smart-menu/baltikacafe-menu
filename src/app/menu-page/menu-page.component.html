@@ -1,0 +1,69 @@
+<section>
+    <header>
+        <mat-form-field *ngIf="menuService.categories && !menuService.category_loading" class="select-category" appearance="fill">
+            <mat-select [(ngModel)]="menuService.category" (ngModelChange)="changeCategory()">
+              <mat-option 
+              *ngFor="let category of menuService.categories" 
+              [value]="category._id">
+                {{category.name[menuService.language]}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+    </header>
+    <aside>
+        <ng-container *ngIf="!menuService.positions_loading">
+            <ng-container *ngFor="let position of menuService.positions">
+
+                <div *ngIf="position.image" class="type-1 position">
+                    <img class="position-image" [src]="position.image" alt="">
+                    <div class="position-info-type-1">
+                        <h1 *ngIf="position.name && position.name[menuService.language]">
+                            {{position.name[menuService.language]}}
+                        </h1>
+                        <p *ngIf="position.description && position.description[menuService.language]">
+                            {{position.description[menuService.language]}}
+                        </p>
+                        <span class="position-cost-value-type-1">
+                            <span *ngIf="position.cost" class="cost-container">
+                                <h1 class="cost">{{position.cost}}</h1>
+                                &nbsp;
+                                <h1>{{menuService.cost}}</h1>
+                            </span>
+                            <h1 class="value" *ngIf="position.value && position.value[menuService.language]">
+                                {{position.value[menuService.language]}}
+                            </h1>
+                        </span>
+                    </div>
+                </div>
+
+                <div *ngIf="!position.image" class="type-2 position">
+                    <div class="position-info-type-2">
+                        <h1 *ngIf="position.name && position.name[menuService.language]">
+                            {{position.name[menuService.language]}}
+                        </h1>
+                        <p *ngIf="position.description && position.description[menuService.language]">
+                            {{position.description[menuService.language]}}
+                        </p>
+                    </div>
+                    &nbsp;&nbsp;&nbsp;
+                    <div class="position-cost-value-type-2">
+                        <span *ngIf="position.cost" class="cost-container">
+                            <h1 class="cost">{{position.cost}}</h1>
+                            &nbsp;
+                            <h1>{{menuService.cost}}</h1>
+                        </span>
+                        &nbsp;
+                        <h1 class="value" *ngIf="position.value && position.value[menuService.language]">
+                            {{position.value[menuService.language]}}
+                        </h1>
+                    </div>
+                </div>
+
+            </ng-container>
+        </ng-container>
+        <ng-container *ngIf="menuService.category_loading ||  menuService.positions_loading">
+            <mat-spinner class="loading"></mat-spinner>
+        </ng-container>
+
+    </aside>
+</section>
